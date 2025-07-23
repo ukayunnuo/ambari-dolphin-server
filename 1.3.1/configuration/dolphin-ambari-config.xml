@@ -17,7 +17,7 @@
 <configuration>
 <property>
     <name>dolphinscheduler.package.download.url</name>
-    <value>http://sh05-hdp3-manage001/dolphin/apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz</value>
+    <value>http://server-middleware/DOLPHIN/apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz</value>
     <description>
         dolphinscheduler install package download url
     </description>
@@ -27,7 +27,7 @@
 </property>
     <property>
         <name>jdbc.connector.download.url</name>
-        <value>http://sh05-hdp3-manage001/dolphin/mysql-connector-java-5.1.47.jar</value>
+        <value>http://server-middleware/DOLPHIN/mysql-connector-java-5.1.49.jar</value>
         <description>
             dolphinscheduler mysql jdbc connector download url
         </description>

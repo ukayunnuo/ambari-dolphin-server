@@ -17,7 +17,7 @@
 <configuration>
     <property>
         <name>worker_logback.xml</name>
-        <value>
+        <value><![CDATA[
 <configuration scan="true" scanPeriod="120 seconds"> <!--debug="true" -->
 
     <property name="log.base" value="/var/log/dolphinscheduler"/>
@@ -82,6 +82,7 @@
     </root>
 
 </configuration>
+]]>
         </value>
         <description>worker_logback.xml</description>
         <value-attributes>
@@ -94,7 +95,7 @@
 
     <property>
         <name>master_logback.xml</name>
-        <value>
+        <value><![CDATA[
 <configuration scan="true" scanPeriod="120 seconds"> <!--debug="true" -->
 
     <property name="log.base" value="/var/log/dolphinscheduler"/>
@@ -158,6 +159,7 @@
     </root>
 
 </configuration>
+]]>
         </value>
         <description>master_logback.xml</description>
         <value-attributes>
@@ -169,7 +171,7 @@
 
     <property>
         <name>apiserver_logback.xml</name>
-        <value>
+        <value><![CDATA[
 <configuration scan="true" scanPeriod="120 seconds"> <!--debug="true" -->
 
     <property name="log.base" value="/var/log/dolphinscheduler"/>
@@ -213,6 +215,7 @@
     </root>
 
 </configuration>
+]]>
         </value>
         <description>apiserver_logback.xml</description>
         <value-attributes>
@@ -224,7 +227,7 @@
 
     <property>
         <name>alert_logback.xml</name>
-        <value>
+        <value><![CDATA[
 <configuration scan="true" scanPeriod="120 seconds"> <!--debug="true" -->
 
     <property name="log.base" value="/var/log/dolphinscheduler"/>
@@ -258,6 +261,7 @@
     </root>
 
 </configuration>
+]]>
         </value>
         <description>alert_logback.xml</description>
         <value-attributes>

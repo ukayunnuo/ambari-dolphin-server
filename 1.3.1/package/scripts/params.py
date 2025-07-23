@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
@@ -60,6 +61,7 @@ rmHosts = default("/clusterHostInfo/rm_host", [])
 # dolphin-env
 dolphin_env_map = {}
 dolphin_env_map.update(config['configurations']['dolphin-env'])
+Logger.info("Load dolphin_env_map config: %s" % dolphin_env_map)
 
 # which user to install and admin dolphin scheduler
 dolphin_user = dolphin_env_map['dolphin.user']
@@ -145,6 +147,9 @@ else:
     dolphin_common_map['yarn.resourcemanager.ha.rm.ids'] = ''
 
 dolphin_common_map_tmp = config['configurations']['dolphin-common']
+
+Logger.info("Load dolphin-common config: %s" % dolphin_common_map_tmp)
+
 data_basedir_path = dolphin_common_map_tmp['data.basedir.path']
 process_exec_basepath = data_basedir_path + '/exec'
 data_download_basedir_path = data_basedir_path + '/download'
@@ -152,7 +157,7 @@ dolphin_common_map['process.exec.basepath'] = process_exec_basepath
 dolphin_common_map['data.download.basedir.path'] = data_download_basedir_path
 dolphin_common_map['dolphinscheduler.env.path'] = dolphin_env_path
 
-dolphin_app_api_map['resource.storage.type'] = dolphin_common_map['res.upload.startup.type']
+dolphin_app_api_map['resource.storage.type'] = dolphin_common_map_tmp['res.upload.startup.type']
 
 zookeeperHosts = default("/clusterHostInfo/zookeeper_server_hosts", [])
 if len(zookeeperHosts) > 0 and "clientPort" in config['configurations']['zoo.cfg']:

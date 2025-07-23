@@ -89,7 +89,7 @@
         <description>
             Resource upload startup type : HDFS,S3,NONE
         </description>
-        <value>NONE</value>
+        <value>HDFS</value>
         <value-attributes>
             <type>value-list</type>
             <entries>

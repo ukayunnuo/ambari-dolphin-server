@@ -39,7 +39,7 @@
 
 	<property>
 		<name>dolphin.database.host</name>
-		<value>sh05-hdp3-manage001</value>
+		<value>server-middleware</value>
 		<display-name>Dolphin Database Host</display-name>
 		<on-ambari-upgrade add="true"/>
 	</property>
@@ -60,7 +60,7 @@
 
 	<property>
 		<name>dolphin.database.password</name>
-		<value>dolphinscheduler123</value>
+		<value>dolphinscheduler</value>
 		<display-name>Dolphin Database Password</display-name>
 		<property-type>PASSWORD</property-type>
 		<value-attributes>
