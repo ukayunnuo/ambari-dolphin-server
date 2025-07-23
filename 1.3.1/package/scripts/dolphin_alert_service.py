@@ -26,12 +26,12 @@ class DolphinAlertService(Script):
     def install(self, env):
         import params
         env.set_params(params)
-        Execute('rm -rf /usr/hdp/current/dolphinscheduler/alert-server')
+        Execute('rm -rf /usr/hdp/current/dolphinscheduler')
         Execute('wget {0} -O dolphinscheduler.tar.gz'.format(params.download_url))
         Execute('tar -zxvf dolphinscheduler.tar.gz -C {0} && rm -rf dolphinscheduler.tar.gz'.format(params.hdp_base_dir))
         Execute('rm -rf {1} && mv {0}/apache-dolphinscheduler* {1}'.format(params.hdp_base_dir,params.dolphin_home))
-        Execute('wget -P {0}/alert-server/libs/ {1}'.format(params.dolphin_home,params.jdbc_driver_download_url))
-        Execute('ln -s {0}/alert-server /usr/hdp/current/dolphinscheduler/alert-server'.format(params.dolphin_home))
+        Execute('wget -P {0}/lib/ {1}'.format(params.dolphin_home,params.jdbc_driver_download_url))
+        Execute('ln -s {0} /usr/hdp/current/dolphinscheduler'.format(params.dolphin_home))
 
 
     def configure(self, env):

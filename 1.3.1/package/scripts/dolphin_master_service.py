@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
@@ -22,16 +23,16 @@ from dolphin_env import dolphin_env
 import commands
 
 
-class DolphinAlertService(Script):
+class DolphinMasterService(Script):
     def install(self, env):
         import params
         env.set_params(params)
-        Execute('rm -rf /usr/hdp/current/dolphinscheduler/alert-server')
+        Execute('rm -rf /usr/hdp/current/dolphinscheduler')
         Execute('wget {0} -O dolphinscheduler.tar.gz'.format(params.download_url))
         Execute('tar -zxvf dolphinscheduler.tar.gz -C {0} && rm -rf dolphinscheduler.tar.gz'.format(params.hdp_base_dir))
         Execute('rm -rf {1} && mv {0}/apache-dolphinscheduler* {1}'.format(params.hdp_base_dir,params.dolphin_home))
-        Execute('wget -P {0}/alert-server/libs/ {1}'.format(params.dolphin_home,params.jdbc_driver_download_url))
-        Execute('ln -s {0}/alert-server /usr/hdp/current/dolphinscheduler/alert-server'.format(params.dolphin_home))
+        Execute('wget -P {0}/lib/ {1}'.format(params.dolphin_home,params.jdbc_driver_download_url))
+        Execute('ln -s {0} /usr/hdp/current/dolphinscheduler'.format(params.dolphin_home))
 
 
     def configure(self, env):
@@ -44,23 +45,22 @@ class DolphinAlertService(Script):
         import params
         env.set_params(params)
         self.configure(env)
-        no_op_test = format("ls {dolphin_pidfile_dir}/dolphinscheduler-alert-server.pid >/dev/null 2>&1 && ps `cat {dolphin_pidfile_dir}/dolphinscheduler-alert-server.pid` | grep `cat {dolphin_pidfile_dir}/dolphinscheduler-alert-server.pid` >/dev/null 2>&1")
-
-        start_cmd = format("sh " + params.dolphin_bin_dir + "/dolphinscheduler-daemon.sh start alert-server")
+        no_op_test = format("ls {dolphin_pidfile_dir}/dolphinscheduler-master-server.pid >/dev/null 2>&1 && ps `cat {dolphin_pidfile_dir}/dolphinscheduler-master-server.pid` | grep `cat {dolphin_pidfile_dir}/dolphinscheduler-master-server.pid` >/dev/null 2>&1")
+        start_cmd = format("sh " + params.dolphin_bin_dir + "/dolphinscheduler-daemon.sh start master-server")
         Execute(start_cmd, user=params.dolphin_user, not_if=no_op_test)
 
     def stop(self, env):
         import params
         env.set_params(params)
-        stop_cmd = format("sh " + params.dolphin_bin_dir + "/dolphinscheduler-daemon.sh stop alert-server")
+        stop_cmd = format("sh " + params.dolphin_bin_dir + "/dolphinscheduler-daemon.sh stop master-server")
         Execute(stop_cmd, user=params.dolphin_user)
         time.sleep(5)
 
     def status(self, env):
         import status_params
         env.set_params(status_params)
-        check_process_status(status_params.dolphin_run_dir + "dolphinscheduler-alert-server.pid")
+        check_process_status(status_params.dolphin_run_dir + "dolphinscheduler-master-server.pid")
 
 
 if __name__ == "__main__":
-    DolphinAlertService().execute()
+    DolphinMasterService().execute()
