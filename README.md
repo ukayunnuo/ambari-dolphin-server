@@ -2,7 +2,7 @@
 
 ## 1. 下载包
 
-### Dolphinscheduler 安装包下载
+### 1.1. Dolphinscheduler 安装包下载
 
 [apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz](https://archive.apache.org/dist/incubator/dolphinscheduler/1.3.1/apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz)
 
@@ -10,13 +10,13 @@
 
 ![img.png](images%2Fimg.png)
 
-### java-mysql-connector依赖包下载
+### 1.2. java-mysql-connector依赖包下载
 
 [mysql-connector-java-5.1.49.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar)
 
 ## 2. 配置 mysql数据库
 
-### 创建数据库和用户
+### 2.1. 创建数据库和用户
 
 ```sql
 CREATE DATABASE dolphinscheduler CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -25,7 +25,7 @@ GRANT ALL PRIVILEGES ON dolphinscheduler.* TO 'dolphinscheduler'@'%';
 FLUSH PRIVILEGES;
 ```
 
-### 执行安装包的sql文件进行对表的创建
+### 2.2. 执行安装包的sql文件进行对表的创建
 
 sql文件位置：`apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz` 解压后的 sql文件夹下的
 `dolphinscheduler_mysql.sql`
@@ -82,13 +82,13 @@ source /etc/profile
 
 ## 5. 放置ambari-dolphin-server插件脚本
 
-### metainfo.xml 文件
+### 5.1. metainfo.xml 文件
 
 将本项目中的`1.3.1/statcks/DOLPHIN/metainfo.xml` 放置在`/var/lib/ambari-server/resources/stacks/HDP/3.1/services/DOLPHIN/metainfo.xml`目录下。
 
-![img.png](img.png)
+![img_14.png](images%2Fimg_14.png)
 
-### 部署脚本文件
+### 5.2. 部署脚本文件
 
 将本项目中的`1.3.1/common-services/DOLPHIN` 文件夹放置在`/var/lib/ambari-server/resources/common-services/DOLPHIN/1.3.1` 目录下。
 
@@ -102,17 +102,17 @@ ambari-server restart
 
 ## 7. 添加 Dolphin Scheduler 服务
 
-### 在添加服务页面上会出现Dolphin Scheduler服务
+### 7.1. 在添加服务页面上会出现Dolphin Scheduler服务
 
 ![img_4.png](images%2Fimg_4.png)
 
-### 选择安装主机节点
+### 7.2. 选择安装主机节点
 
 ![img_5.png](images%2Fimg_5.png)
 
 ![img_6.png](images%2Fimg_6.png)
 
-### 配置信息
+### 7.3. 配置信息
 
 ![img_7.png](images%2Fimg_7.png)
 
@@ -130,11 +130,11 @@ ambari-server restart
 
 ![img_10.png](images%2Fimg_10.png)
 
-### 查看安装信息
+### 7.4. 查看安装信息
 
 ![img_13.png](images%2Fimg_13.png)
 
-### 安装成功
+## 8. 安装成功页面
 
 **dolphin scheduler默认账号密码：admin/dolphinscheduler123**
 
