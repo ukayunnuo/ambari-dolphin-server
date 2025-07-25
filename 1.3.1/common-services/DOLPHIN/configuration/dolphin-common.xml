@@ -84,7 +84,7 @@
     </property>
 
     <property>
-        <name>res.upload.startup.type</name>
+        <name>resource.storage.type</name>
         <display-name>Choose Resource Upload Startup Type</display-name>
         <description>
             Resource upload startup type : HDFS,S3,NONE

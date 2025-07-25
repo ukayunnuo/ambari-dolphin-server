@@ -151,7 +151,7 @@
           "subsection-name": "env-row1-col2"
         },
         {
-          "config": "dolphin-common/res.upload.startup.type",
+          "config": "dolphin-common/resource.storage.type",
           "subsection-name": "dynamic-row1-col1"
         },
         {
@@ -160,9 +160,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === HDFS",
+              "if": "${dolphin-common/resource.storage.type} === HDFS",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -182,9 +182,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === HDFS",
+              "if": "${dolphin-common/resource.storage.type} === HDFS",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -204,9 +204,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === HDFS",
+              "if": "${dolphin-common/resource.storage.type} === HDFS",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -226,9 +226,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === S3",
+              "if": "${dolphin-common/resource.storage.type} === S3",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -248,9 +248,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === S3",
+              "if": "${dolphin-common/resource.storage.type} === S3",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -270,9 +270,9 @@
           "depends-on": [
             {
               "configs":[
-                "dolphin-common/res.upload.startup.type"
+                "dolphin-common/resource.storage.type"
               ],
-              "if": "${dolphin-common/res.upload.startup.type} === S3",
+              "if": "${dolphin-common/resource.storage.type} === S3",
               "then": {
                 "property_value_attributes": {
                   "visible": true
@@ -505,7 +505,7 @@
         }
       },
       {
-        "config": "dolphin-common/res.upload.startup.type",
+        "config": "dolphin-common/resource.storage.type",
         "widget": {
           "type": "combo"
         }
